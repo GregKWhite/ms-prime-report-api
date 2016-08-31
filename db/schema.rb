@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831234706) do
+ActiveRecord::Schema.define(version: 20160831235443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 20160831234706) do
     t.decimal  "mileage",    default: "0.0", null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "weekly_reports", force: :cascade do |t|
+    t.integer  "truck_id"
+    t.decimal  "initial_mileage", default: "0.0", null: false
+    t.decimal  "current_mileage", default: "0.0", null: false
+    t.decimal  "total_gas",       default: "0.0", null: false
+    t.decimal  "total_paid",      default: "0.0", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["truck_id"], name: "index_weekly_reports_on_truck_id", using: :btree
   end
 
 end
