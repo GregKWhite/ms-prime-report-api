@@ -11,6 +11,6 @@
 #
 
 class Driver < ApplicationRecord
-  validates_presence_of :name, :password_digest
+  validates_presence_of :name
   validates_uniqueness_of :name
 end
