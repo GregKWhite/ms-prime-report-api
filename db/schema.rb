@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831233555) do
+ActiveRecord::Schema.define(version: 20160831234706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160831233555) do
     t.text     "notes",       default: "",    null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "truck_id"
     t.index ["driver_id"], name: "index_driver_reports_on_driver_id", using: :btree
     t.index ["helper_id"], name: "index_driver_reports_on_helper_id", using: :btree
     t.index ["location_id"], name: "index_driver_reports_on_location_id", using: :btree
@@ -41,6 +42,13 @@ ActiveRecord::Schema.define(version: 20160831233555) do
     t.string   "name",       default: "", null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "trucks", force: :cascade do |t|
+    t.string   "identifier", default: "",    null: false
+    t.decimal  "mileage",    default: "0.0", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end

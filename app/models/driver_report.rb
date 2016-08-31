@@ -13,6 +13,7 @@
 #  notes       :text             default(""), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  truck_id    :integer
 #
 
 class DriverReport < ApplicationRecord
@@ -22,4 +23,5 @@ class DriverReport < ApplicationRecord
   belongs_to :driver
   belongs_to :helper, class_name: 'Driver', required: false
   belongs_to :location
+  belongs_to :truck
 end
