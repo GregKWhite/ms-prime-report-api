@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831233221) do
+ActiveRecord::Schema.define(version: 20160831233555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "driver_reports", force: :cascade do |t|
+    t.integer  "driver_id"
+    t.integer  "location_id"
+    t.integer  "helper_id"
+    t.decimal  "gallons",     default: "0.0", null: false
+    t.decimal  "amount_paid", default: "0.0", null: false
+    t.decimal  "mileage",     default: "0.0", null: false
+    t.text     "notes",       default: "",    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["driver_id"], name: "index_driver_reports_on_driver_id", using: :btree
+    t.index ["helper_id"], name: "index_driver_reports_on_helper_id", using: :btree
+    t.index ["location_id"], name: "index_driver_reports_on_location_id", using: :btree
+  end
 
   create_table "drivers", force: :cascade do |t|
     t.string   "name",            default: "", null: false
