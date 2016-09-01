@@ -8,7 +8,7 @@
 .sidebar__link {
   color: $base-font-color;
   display: block;
-  padding-top: $base-spacing;
+  margin-top: $base-spacing;
   transition: color 0.05s linear;
 
   &:hover {
