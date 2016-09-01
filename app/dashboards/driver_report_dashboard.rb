@@ -62,6 +62,7 @@ class DriverReportDashboard < Administrate::BaseDashboard
     :amount_paid,
     :mileage,
     :notes,
+    :created_at,
   ].freeze
 
   # Overwrite this method to customize how driver reports are displayed
