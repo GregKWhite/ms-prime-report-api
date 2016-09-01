@@ -18,3 +18,7 @@ gem 'active_model_serializers'
 group :development do
   gem 'annotate'
 end
+
+group :development, :test do
+  gem 'pry'
+end

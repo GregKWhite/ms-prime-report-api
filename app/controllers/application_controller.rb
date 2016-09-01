@@ -1,3 +1,10 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  def resource_errors(resource)
+    {
+      json: resource,
+      status: 422,
+      adapter: :json_api,
+      serializer: ActiveModel::Serializer::ErrorSerializer
+    }
+  end
 end

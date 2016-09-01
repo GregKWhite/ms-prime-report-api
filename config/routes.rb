@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     resources :locations, only: %i(index)
     resources :drivers, only: %i(index)
     resources :trucks, only: %i(index)
+
+    post 'report', to: 'driver_reports#create'
   end
 end

@@ -18,6 +18,8 @@ class WeeklyReport < ApplicationRecord
                             greater_than_or_equal_to: 0
   belongs_to :truck
 
+  scope :current, -> { where(created_at: DateRange.current_week).order(:truck_id) }
+
   def miles_driven
     current_mileage - initial_mileage
   end
