@@ -12,10 +12,10 @@ class WeeklyReportDashboard < Administrate::BaseDashboard
     truck: Field::BelongsTo,
     initial_mileage: Field::String.with_options(searchable: false),
     current_mileage: Field::String.with_options(searchable: false),
+    miles_driven: Field::String.with_options(searchable: false),
     total_gas: Field::String.with_options(searchable: false),
     total_paid: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,23 +24,23 @@ class WeeklyReportDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :id,
     :truck,
     :initial_mileage,
     :current_mileage,
+    :miles_driven,
+    :total_gas,
+    :total_paid,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :id,
     :truck,
     :initial_mileage,
     :current_mileage,
+    :miles_driven,
     :total_gas,
     :total_paid,
-    :created_at,
-    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES

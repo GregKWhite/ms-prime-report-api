@@ -17,4 +17,8 @@ class WeeklyReport < ApplicationRecord
   validates_numericality_of :initial_mileage, :current_mileage, :total_paid, :total_gas,
                             greater_than_or_equal_to: 0
   belongs_to :truck
+
+  def miles_driven
+    current_mileage - initial_mileage
+  end
 end
