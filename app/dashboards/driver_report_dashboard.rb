@@ -18,7 +18,6 @@ class DriverReportDashboard < Administrate::BaseDashboard
     mileage: Field::String.with_options(searchable: false),
     notes: Field::Text,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -49,7 +48,6 @@ class DriverReportDashboard < Administrate::BaseDashboard
     :mileage,
     :notes,
     :created_at,
-    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
