@@ -24,4 +24,6 @@ class DriverReport < ApplicationRecord
   belongs_to :helper, class_name: 'Driver', required: false
   belongs_to :location
   belongs_to :truck
+
+  default_scope -> { order(created_at: :desc) }
 end
