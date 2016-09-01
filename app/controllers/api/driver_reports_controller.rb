@@ -14,6 +14,12 @@ module API
 
     private
 
+    def create_weekly_truck_reports
+      return if WeeklyReport.current.count > 0
+
+      WeeklyReport.create_weekly_reports!
+    end
+
     def driver_report_params
       params.require(:driver_report).permit(*attributes)
     end

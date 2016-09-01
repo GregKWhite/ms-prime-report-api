@@ -23,4 +23,16 @@ class WeeklyReport < ApplicationRecord
   def miles_driven
     current_mileage - initial_mileage
   end
+
+  def self.create_weekly_reports!
+    Truck.find_each do |truck|
+      create(
+        truck: truck,
+        initial_mileage: truck.mileage,
+        current_mileage: truck.mileage,
+        total_gas: 0.0,
+        total_paid: 0.0
+      )
+    end
+  end
 end

@@ -13,4 +13,16 @@
 class Truck < ApplicationRecord
   validates :identifier, presence: true, uniqueness: true
   validates :mileage, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  after_create :create_weekly_report
+
+  def create_weekly_report
+    WeeklyReport.create(
+      truck: self,
+      initial_mileage: mileage,
+      current_mileage: mileage,
+      total_gas: 0.0,
+      total_paid: 0.0
+    )
+  end
 end
