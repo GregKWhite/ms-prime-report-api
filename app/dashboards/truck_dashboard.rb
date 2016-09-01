@@ -11,8 +11,6 @@ class TruckDashboard < Administrate::BaseDashboard
     id: Field::Number,
     identifier: Field::String,
     mileage: Field::String.with_options(searchable: false),
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -21,20 +19,15 @@ class TruckDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :id,
     :identifier,
     :mileage,
-    :created_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :id,
     :identifier,
     :mileage,
-    :created_at,
-    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -48,7 +41,7 @@ class TruckDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how trucks are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(truck)
-  #   "Truck ##{truck.id}"
-  # end
+  def display_resource(truck)
+    truck.identifier
+  end
 end

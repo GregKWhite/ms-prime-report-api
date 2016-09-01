@@ -1,5 +1,7 @@
 module API
   class DriverReportsController < ApplicationController
+    before_action :create_weekly_reports
+
     def create
       driver_report = DriverReport.new(driver_report_params)
 
@@ -14,7 +16,7 @@ module API
 
     private
 
-    def create_weekly_truck_reports
+    def create_weekly_reports
       return if WeeklyReport.current.count > 0
 
       WeeklyReport.create_weekly_reports!
