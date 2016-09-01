@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :locations, only: %i(index)
     resources :drivers, only: %i(index)
+    resources :trucks, only: %i(index)
   end
 end
