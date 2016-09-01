@@ -1,5 +1,6 @@
 .collection-data {
   @include padding(null $base-spacing);
+  padding-bottom: $base-spacing;
 }
 
 .table__row {
