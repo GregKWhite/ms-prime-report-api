@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
     root to: 'driver_reports#index'
   end
+
+  namespace :api do
+    resources :locations, only: %i(index)
+  end
 end
