@@ -17,7 +17,7 @@ class DriverReportDashboard < Administrate::BaseDashboard
     amount_paid: Field::String.with_options(searchable: false),
     mileage: Field::String.with_options(searchable: false),
     notes: Field::Text,
-    created_at: Field::DateTime,
+    created_at: DatetimeField,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
