@@ -8,10 +8,10 @@ class DriverReportDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    driver: Field::BelongsTo,
-    helper: Field::BelongsTo.with_options(class_name: "Driver"),
-    location: Field::BelongsTo,
-    truck: Field::BelongsTo,
+    driver: BelongsToField,
+    helper: BelongsToField.with_options(class_name: 'Driver'),
+    location: BelongsToField,
+    truck: BelongsToField.with_options(display: :identifier),
     id: Field::Number,
     gallons: Field::Number.with_options(decimals: 2),
     amount_paid: Field::Number.with_options(prefix: "$", decimals: 2),

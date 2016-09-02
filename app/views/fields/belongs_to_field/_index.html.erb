@@ -1,0 +1,5 @@
+<% if field.data %>
+  <%= link_to field.to_s, [:admin, field.data] %>
+<% else %>
+  <%= 'N/A' %>
+<% end %>

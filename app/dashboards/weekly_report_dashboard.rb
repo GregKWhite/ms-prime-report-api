@@ -9,7 +9,7 @@ class WeeklyReportDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    truck: Field::BelongsTo,
+    truck: BelongsToField.with_options(display: :identifier),
     initial_mileage: Field::String.with_options(searchable: false),
     current_mileage: Field::String.with_options(searchable: false),
     miles_driven: Field::String.with_options(searchable: false),
