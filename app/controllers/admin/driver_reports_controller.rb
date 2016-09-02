@@ -1,19 +1,21 @@
 module Admin
   class DriverReportsController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # simply overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = DriverReport.all.paginate(10, params[:page])
-    # end
+    def create
+      resource = resource_class.new(resource_params)
 
-    # Define a custom finder by overriding the `find_resource` method:
-    # def find_resource(param)
-    #   DriverReport.find_by!(slug: param)
-    # end
+      if resource.save
+        WeeklyReportUpdater.update_using(resource)
+        TruckUpdater.update_using(resource)
 
-    # See https://administrate-docs.herokuapp.com/customizing_controller_actions
-    # for more information
+        redirect_to(
+          [namespace, resource],
+          notice: translate_with_resource("create.success"),
+        )
+      else
+        render :new, locals: {
+          page: Administrate::Page::Form.new(dashboard, resource),
+        }
+      end
+    end
   end
 end
