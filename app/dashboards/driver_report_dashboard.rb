@@ -13,10 +13,10 @@ class DriverReportDashboard < Administrate::BaseDashboard
     location: Field::BelongsTo,
     truck: Field::BelongsTo,
     id: Field::Number,
-    gallons: Field::String.with_options(searchable: false),
-    amount_paid: Field::String.with_options(searchable: false),
-    mileage: Field::String.with_options(searchable: false),
-    notes: Field::Text,
+    gallons: Field::Number.with_options(decimals: 2),
+    amount_paid: Field::Number.with_options(prefix: "$", decimals: 2),
+    mileage: Field::Number.with_options(decimals: 2),
+    notes: TextField,
     created_at: DatetimeField,
   }.freeze
 

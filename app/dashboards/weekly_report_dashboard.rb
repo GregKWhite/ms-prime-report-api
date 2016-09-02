@@ -14,7 +14,7 @@ class WeeklyReportDashboard < Administrate::BaseDashboard
     current_mileage: Field::String.with_options(searchable: false),
     miles_driven: Field::String.with_options(searchable: false),
     total_gas: Field::String.with_options(searchable: false),
-    total_paid: Field::String.with_options(searchable: false),
+    total_paid: Field::Number.with_options(prefix: "$", decimals: 2),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
