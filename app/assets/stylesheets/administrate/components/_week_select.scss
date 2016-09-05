@@ -1,0 +1,19 @@
+.bootstrap-datetimepicker-widget tbody tr:hover {
+  background: rgb(238, 238, 238);
+}
+
+.collection-filters {
+  @include outer-container;
+  @include span-columns(4);
+  margin-left: $base-spacing;
+  margin-bottom: $base-spacing;
+
+  .filter-group {
+    @include span-columns(4 of 4);
+    margin-bottom: 10px;
+
+    label {
+      margin-bottom: .3em;
+    }
+  }
+}
