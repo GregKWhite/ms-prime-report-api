@@ -22,6 +22,7 @@ $(document).ready(function(){
   });
 
   $('.filter-toggle').click(function() {
+    $('.filter-toggle').blur();
     $('.filter-toggle').toggleClass('show').toggleClass('hide');
     $('.collection-filters').toggleClass('hide').toggleClass('show');
   })
@@ -32,10 +33,14 @@ $(document).ready(function(){
     return firstDate + ' - ' + lastDate;
   }
 
-  $('#location').change(filterReports);
-  $('#weeklyDatePicker').on('dp.change', filterReports);
+  // $('#location').change(filterReports);
+  // $('#weeklyDatePicker').on('dp.change', filterReports);
 
-  function filterReports() {
+  $('.filter-run').click(filterReports);
+
+  function filterReports(e) {
+    e.target.blur();
+
     var url = '/driver_reports/table?'
       + '&location_id=' + $('#location').val() 
       + '&date_range=' + encodeURIComponent($('#weeklyDatePicker').val());
