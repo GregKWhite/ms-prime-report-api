@@ -28,6 +28,8 @@
   </section>
 </section>
 
-<%= render "collection", collection_presenter: page, resources: resources %>
+<div class='table-wrapper'>
+  <%= render "collection", collection_presenter: page, resources: resources %>
+</div>
 
 <%= paginate resources %>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   scope '', module: 'admin', as: 'admin' do
-    resources :driver_reports
+    resources :driver_reports do
+      get 'table', on: :collection
+    end
     resources :weekly_reports
     resources :locations
     resources :drivers

@@ -1,6 +1,6 @@
 class DateRange
   def self.current_week
-    starting_date..ending_date
+    starting_date...ending_date
   end
 
   def self.starting_date

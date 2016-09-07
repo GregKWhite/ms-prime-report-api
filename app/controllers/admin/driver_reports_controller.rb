@@ -1,5 +1,24 @@
 module Admin
   class DriverReportsController < Admin::ApplicationController
+    def index
+      resources = order.apply(driver_reports)
+      resources = resources.page(params[:page]).per(records_per_page)
+      page = Administrate::Page::Collection.new(dashboard, order: order)
+
+      render locals: {
+        resources: resources,
+        page: page,
+      }
+    end
+
+    def table
+      resources = order.apply(driver_reports)
+      resources = resources.page(params[:page]).per(records_per_page)
+      page = Administrate::Page::Collection.new(dashboard, order: order)
+
+      render locals: { page: page, resources: resources }, layout: false
+    end
+
     def create
       resource = resource_class.new(resource_params)
 
@@ -16,6 +35,12 @@ module Admin
           page: Administrate::Page::Form.new(dashboard, resource),
         }
       end
+    end
+
+    private
+
+    def driver_reports
+      DriverReportFilter.new(params).run
     end
   end
 end

@@ -26,4 +26,6 @@ class DriverReport < ApplicationRecord
   belongs_to :truck
 
   default_scope -> { order(created_at: :desc) }
+
+  scope :within_range, ->(date_range) { where(created_at: date_range) }
 end
