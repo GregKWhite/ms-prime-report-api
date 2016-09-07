@@ -16,4 +16,9 @@ $(document).ready(function(){
     var lastDate =  moment(value, "MM/DD/YYYY").day(6).format("MM/DD/YYYY");
     $("#weeklyDatePicker").val(firstDate + " - " + lastDate);
   });
+
+  $('.filter-toggle').click(function() {
+    $('.filter-toggle').toggleClass('show').toggleClass('hide');
+    $('.collection-filters').toggleClass('hide').toggleClass('show');
+  })
 });
