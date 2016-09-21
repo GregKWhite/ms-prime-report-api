@@ -17,6 +17,7 @@ gem 'active_model_serializers'
 
 group :development do
   gem 'annotate'
+  gem 'rubocop'
 end
 
 group :development, :test do
