@@ -22,3 +22,9 @@
 .table__action--destroy {
   color: $light-red;
 }
+
+.no-elements {
+  &:hover {
+    cursor: initial;
+  }
+}

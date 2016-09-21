@@ -2,7 +2,7 @@ $(function() {
   var keycodes = { space: 32, enter: 13 };
 
   var visitDataUrl = function(event) {
-    if (event.target.hasClass('no_elements')) {
+    if ($(event.target).hasClass('no_elements')) {
       return false;
     }
 

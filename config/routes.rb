@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :drivers
     resources :trucks
 
-    root to: 'driver_reports#index'
+    root to: redirect('/driver_reports')
   end
 
   namespace :api do
