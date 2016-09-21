@@ -10,10 +10,6 @@
   <a class='button filter-toggle show' href='#'></a>
   <section class='collection-filters slider hide'>
     <h1>Report Filters</h1>
-    <div class='filter-group'>
-      <%= label_tag :location %>
-      <%= select_tag :location, options_from_collection_for_select(Location.all, 'id', 'name') %>
-    </div>
     <div class='filter-group' style='position: relative;'>
       <%= label_tag :week %>
       <input type='text' id='weeklyDatePicker' placeholder="Select Week" />

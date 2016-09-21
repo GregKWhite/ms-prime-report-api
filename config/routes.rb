@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     resources :driver_reports do
       get 'table', on: :collection
     end
-    resources :weekly_reports
+    resources :weekly_reports do
+      get 'table', on: :collection
+    end
     resources :locations
     resources :drivers
     resources :trucks

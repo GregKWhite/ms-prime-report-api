@@ -41,7 +41,7 @@ $(document).ready(function(){
   function filterReports(e) {
     e.target.blur();
 
-    var url = '/driver_reports/table?'
+    var url = window.location.pathname + '/table?'
       + '&location_id=' + $('#location').val()
       + '&date_range=' + encodeURIComponent($('#weeklyDatePicker').val());
 
