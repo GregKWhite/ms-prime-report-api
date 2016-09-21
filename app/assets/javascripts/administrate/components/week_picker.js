@@ -42,11 +42,13 @@ $(document).ready(function(){
     e.target.blur();
 
     var url = '/driver_reports/table?'
-      + '&location_id=' + $('#location').val() 
+      + '&location_id=' + $('#location').val()
       + '&date_range=' + encodeURIComponent($('#weeklyDatePicker').val());
 
-    $('.table-wrapper').load(url, function(html) {
-      console.log(html);
-    });
+    $.getScript(url);
   }
+});
+$(document).on({
+    ajaxStart: function() { $('.filter-run').toggleClass('apply').toggleClass('loading'); },
+     ajaxStop: function() { $('.filter-run').toggleClass('apply').toggleClass('loading'); }
 });

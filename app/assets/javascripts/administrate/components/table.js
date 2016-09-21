@@ -2,6 +2,10 @@ $(function() {
   var keycodes = { space: 32, enter: 13 };
 
   var visitDataUrl = function(event) {
+    if (event.target.hasClass('no_elements')) {
+      return false;
+    }
+
     if (event.type=="click" ||
         event.keyCode == keycodes.space ||
         event.keyCode == keycodes.enter) {

@@ -18,12 +18,10 @@
       <%= label_tag :location %>
       <%= select_tag :location, options_from_collection_for_select(Location.all, 'id', 'name') %>
     </div>
-    <button class='button filter-run' href=''>Apply</button>
+    <button class='button filter-run apply' href=''></button>
   </section>
 </section>
 
 <div class='table-wrapper'>
   <%= render "collection", collection_presenter: page, resources: resources %>
 </div>
-
-<%= paginate resources %>

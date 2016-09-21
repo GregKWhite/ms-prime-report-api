@@ -19,10 +19,20 @@
   .bootstrap-datetimepicker-widget tbody tr:hover {
     background: rgb(238, 238, 238);
   }
+
+  .filter-run {
+    &.apply::after {
+      content: 'Apply';
+    }
+
+    &.loading::after {
+      content: 'Loading...';
+    }
+  }
 }
 
 .collection-filters {
-  @include outer-container; 
+  @include outer-container;
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #ddd;
@@ -57,4 +67,8 @@
     transition-timing-function: ease-in-out;
     max-height: 1000px;
   }
+}
+
+.hidden {
+  display: none;
 }
