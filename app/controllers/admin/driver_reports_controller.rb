@@ -1,5 +1,7 @@
 module Admin
   class DriverReportsController < Admin::ApplicationController
+    helper :driver_reports
+
     def index
       resources = order.apply(driver_reports)
       resources = resources.page(params[:page]).per(records_per_page)

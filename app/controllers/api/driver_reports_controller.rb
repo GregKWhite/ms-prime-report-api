@@ -23,7 +23,6 @@ module API
     end
 
     def driver_report_params
-      binding.pry
       params.require(:driver_report).permit(*attributes).select { |_, v| v.present? }
     end
 

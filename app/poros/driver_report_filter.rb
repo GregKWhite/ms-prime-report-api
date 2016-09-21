@@ -7,7 +7,11 @@ class DriverReportFilter
   end
 
   def run
-    location.driver_reports.within_range(parsed_date_range)
+    if location_id =~ /all/ || location_id.blank?
+      DriverReport.within_range(parsed_date_range)
+    else
+      location.driver_reports.within_range(parsed_date_range)
+    end
   end
 
   private

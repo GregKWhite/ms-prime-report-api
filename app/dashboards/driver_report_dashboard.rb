@@ -27,6 +27,7 @@ class DriverReportDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :created_at,
+    :location,
     :driver,
     :helper,
     :truck,
