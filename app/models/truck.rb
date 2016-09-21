@@ -16,6 +16,8 @@ class Truck < ApplicationRecord
 
   after_create :create_weekly_report
 
+  default_scope -> { order(:identifier) }
+
   def create_weekly_report
     WeeklyReport.create(
       truck: self,

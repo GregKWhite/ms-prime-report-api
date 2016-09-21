@@ -18,6 +18,7 @@ class WeeklyReport < ApplicationRecord
                             greater_than_or_equal_to: 0
   belongs_to :truck
 
+  default_scope -> { order(created_at: :desc) }
   scope :current, -> { where(created_at: DateRange.current_week).order(:truck_id) }
   scope :within_range, ->(date_range) { where(created_at: date_range) }
 
