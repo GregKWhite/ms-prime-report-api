@@ -6,10 +6,14 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
+    CMS_PASSWORD = ENV.fetch('CMS_PASSWORD')
+
     before_action :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      authenticate_or_request_with_http_basic do |_, password|
+        password == CMS_PASSWORD
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
