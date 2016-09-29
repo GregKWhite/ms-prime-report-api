@@ -8,8 +8,12 @@
   border-left: 2px solid transparent;
   transition: background-color $base-duration $base-timing;
 
-  &:hover {
+  &:nth-child(even) {
     background-color: $base-background-color;
+  }
+
+  &:hover {
+    background-color: shade($base-background-color, 5%);
     border-left-color: $blue;
     cursor: pointer;
   }
