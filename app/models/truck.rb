@@ -11,12 +11,14 @@
 #
 
 class Truck < ApplicationRecord
+  has_many :truck_logs
+
   validates :identifier, presence: true, uniqueness: true
   validates :mileage, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   after_create :create_weekly_report
 
-  default_scope -> { order(:identifier) }
+  default_scope -> { order(:id) }
 
   def create_weekly_report
     WeeklyReport.create(
