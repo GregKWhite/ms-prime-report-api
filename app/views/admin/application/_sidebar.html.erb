@@ -1,3 +1,4 @@
+<%= image_tag 'logo.png' %>
 <ul class="sidebar__list">
   <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
     <% unless [:truck_logs].include? resource %>
