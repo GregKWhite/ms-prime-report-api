@@ -1,0 +1,22 @@
+<% content_for(:title) do %>
+  <%= display_resource_name(page.resource_name) %>
+<% end %>
+
+<header class="header">
+  <h1 class="header__heading" id="page-title">
+    <%= link_to(Truck.find_by_id(params[:truck_id])&.identifier, admin_truck_path(params[:truck_id])) %>
+    -
+    Logs
+  </h1>
+  <div class="header__actions">
+  <%= link_to(
+    "New #{page.resource_name.titleize.downcase}",
+    new_admin_truck_truck_log_path(params[:truck_id]),
+    class: "button",
+  ) %>
+</div>
+</header>
+
+<div class='table-wrapper'>
+  <%= render "collection", collection_presenter: page, resources: resources %>
+</div>

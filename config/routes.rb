@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     end
     resources :locations
     resources :drivers
-    resources :trucks
+    resources :trucks do
+      resources :truck_logs, shallow: true
+    end
 
     root to: redirect('/driver_reports')
   end
