@@ -10,7 +10,7 @@ gem 'bcrypt'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'administrate', github: 'greetpoint/administrate', branch: 'rails5'
+gem 'administrate', github: 'GregKWhite/administrate', branch: 'rails5'
 gem 'bourbon', '~> 5.0.0.beta.5' 
 gem 'listen'
 gem 'active_model_serializers'
