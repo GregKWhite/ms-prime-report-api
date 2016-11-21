@@ -27,6 +27,6 @@ class DriverReportFilter
       Date.strptime(date_string, '%m/%d/%Y')
     end
 
-    mapped_range.first...mapped_range.last
+    mapped_range.first.beginning_of_day..mapped_range.last.end_of_day
   end
 end
